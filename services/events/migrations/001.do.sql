@@ -11,5 +11,6 @@ CREATE TABLE IF NOT EXISTS events (
   date TIMESTAMP NOT NULL,
   location TEXT,
   client_id INTEGER,
+  invited_count INTEGER DEFAULT 0,
   FOREIGN KEY (client_id) REFERENCES clients(id)
 );
