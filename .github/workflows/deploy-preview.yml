@@ -43,7 +43,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Delete any existing Neon database for this branch
-        uses: neondatabase/delete-branch-by-name-action@main
+        uses: neondatabase/delete-branch-by-name-action@master
         with:
           project_id: ${{ vars.NEON_PROJECT_ID }}
           branch_name: ${{ github.head_ref }}
@@ -72,7 +72,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           platformatic_workspace_id: ${{ vars.PLATFORMATIC_STATIC_WORKSPACE_ID }}
           platformatic_workspace_key: ${{ secrets.PLATFORMATIC_STATIC_WORKSPACE_API_KEY }}
-          platformatic_config_path: ./blog-api/platformatic.db.json
+          platformatic_config_path: ./services/events/platformatic.json
           secrets: DATABASE_URL
         env:
           PLT_SERVER_HOSTNAME: ${{ vars.PLT_SERVER_HOSTNAME }}
