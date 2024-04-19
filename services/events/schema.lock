@@ -1,0 +1,322 @@
+[
+  {
+    "schema": null,
+    "table": "versions",
+    "constraints": [
+      {
+        "column_name": "version",
+        "constraint_type": "PRIMARY KEY"
+      }
+    ],
+    "columns": [
+      {
+        "cid": 0,
+        "name": "version",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1,
+        "hidden": 0,
+        "column_name": "version",
+        "udt_name": "integer",
+        "is_nullable": "NO",
+        "is_generated": "NO"
+      },
+      {
+        "cid": 1,
+        "name": "name",
+        "type": "TEXT",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0,
+        "hidden": 0,
+        "column_name": "name",
+        "udt_name": "text",
+        "is_nullable": "YES",
+        "is_generated": "NO"
+      },
+      {
+        "cid": 2,
+        "name": "md5",
+        "type": "TEXT",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0,
+        "hidden": 0,
+        "column_name": "md5",
+        "udt_name": "text",
+        "is_nullable": "YES",
+        "is_generated": "NO"
+      },
+      {
+        "cid": 3,
+        "name": "run_at",
+        "type": "TIMESTAMP WITH TIME ZONE",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0,
+        "hidden": 0,
+        "column_name": "run_at",
+        "udt_name": "timestamp with time zone",
+        "is_nullable": "YES",
+        "is_generated": "NO"
+      }
+    ]
+  },
+  {
+    "schema": null,
+    "table": "clients",
+    "constraints": [
+      {
+        "column_name": "id",
+        "constraint_type": "PRIMARY KEY"
+      },
+      {
+        "column_name": "id",
+        "constraint_type": "UNIQUE"
+      }
+    ],
+    "columns": [
+      {
+        "cid": 0,
+        "name": "id",
+        "type": "SERIAL",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1,
+        "hidden": 0,
+        "column_name": "id",
+        "udt_name": "serial",
+        "is_nullable": "NO",
+        "is_generated": "NO"
+      },
+      {
+        "cid": 1,
+        "name": "name",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0,
+        "hidden": 0,
+        "column_name": "name",
+        "udt_name": "text",
+        "is_nullable": "NO",
+        "is_generated": "NO"
+      },
+      {
+        "cid": 2,
+        "name": "contact_info",
+        "type": "TEXT",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0,
+        "hidden": 0,
+        "column_name": "contact_info",
+        "udt_name": "text",
+        "is_nullable": "YES",
+        "is_generated": "NO"
+      }
+    ]
+  },
+  {
+    "schema": null,
+    "table": "events",
+    "constraints": [
+      {
+        "column_name": "id",
+        "constraint_type": "PRIMARY KEY"
+      },
+      {
+        "column_name": "id",
+        "constraint_type": "UNIQUE"
+      },
+      {
+        "table_name": "events",
+        "column_name": "client_id",
+        "constraint_type": "FOREIGN KEY",
+        "foreign_table_name": "clients",
+        "foreign_column_name": "id",
+        "loweredTableWithSchemaName": "events",
+        "foreignEntityName": "client",
+        "entityName": "event"
+      }
+    ],
+    "columns": [
+      {
+        "cid": 0,
+        "name": "id",
+        "type": "SERIAL",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1,
+        "hidden": 0,
+        "column_name": "id",
+        "udt_name": "serial",
+        "is_nullable": "NO",
+        "is_generated": "NO"
+      },
+      {
+        "cid": 1,
+        "name": "title",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0,
+        "hidden": 0,
+        "column_name": "title",
+        "udt_name": "text",
+        "is_nullable": "NO",
+        "is_generated": "NO"
+      },
+      {
+        "cid": 2,
+        "name": "date",
+        "type": "TIMESTAMP",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0,
+        "hidden": 0,
+        "column_name": "date",
+        "udt_name": "timestamp",
+        "is_nullable": "NO",
+        "is_generated": "NO"
+      },
+      {
+        "cid": 3,
+        "name": "location",
+        "type": "TEXT",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0,
+        "hidden": 0,
+        "column_name": "location",
+        "udt_name": "text",
+        "is_nullable": "YES",
+        "is_generated": "NO"
+      },
+      {
+        "cid": 4,
+        "name": "client_id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0,
+        "hidden": 0,
+        "column_name": "client_id",
+        "udt_name": "integer",
+        "is_nullable": "YES",
+        "is_generated": "NO"
+      }
+    ]
+  },
+  {
+    "schema": null,
+    "table": "photographers",
+    "constraints": [
+      {
+        "column_name": "id",
+        "constraint_type": "PRIMARY KEY"
+      },
+      {
+        "column_name": "email",
+        "constraint_type": "UNIQUE"
+      },
+      {
+        "column_name": "id",
+        "constraint_type": "UNIQUE"
+      }
+    ],
+    "columns": [
+      {
+        "cid": 0,
+        "name": "id",
+        "type": "SERIAL",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1,
+        "hidden": 0,
+        "column_name": "id",
+        "udt_name": "serial",
+        "is_nullable": "NO",
+        "is_generated": "NO"
+      },
+      {
+        "cid": 1,
+        "name": "name",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0,
+        "hidden": 0,
+        "column_name": "name",
+        "udt_name": "text",
+        "is_nullable": "NO",
+        "is_generated": "NO"
+      },
+      {
+        "cid": 2,
+        "name": "email",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0,
+        "hidden": 0,
+        "column_name": "email",
+        "udt_name": "text",
+        "is_nullable": "NO",
+        "is_generated": "NO"
+      },
+      {
+        "cid": 3,
+        "name": "phone",
+        "type": "TEXT",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 0,
+        "hidden": 0,
+        "column_name": "phone",
+        "udt_name": "text",
+        "is_nullable": "YES",
+        "is_generated": "NO"
+      }
+    ]
+  },
+  {
+    "schema": null,
+    "table": "users",
+    "constraints": [
+      {
+        "column_name": "id",
+        "constraint_type": "PRIMARY KEY"
+      }
+    ],
+    "columns": [
+      {
+        "cid": 0,
+        "name": "id",
+        "type": "INTEGER",
+        "notnull": 0,
+        "dflt_value": null,
+        "pk": 1,
+        "hidden": 0,
+        "column_name": "id",
+        "udt_name": "integer",
+        "is_nullable": "NO",
+        "is_generated": "NO"
+      },
+      {
+        "cid": 1,
+        "name": "email",
+        "type": "TEXT",
+        "notnull": 1,
+        "dflt_value": null,
+        "pk": 0,
+        "hidden": 0,
+        "column_name": "email",
+        "udt_name": "text",
+        "is_nullable": "NO",
+        "is_generated": "NO"
+      }
+    ]
+  }
+]
