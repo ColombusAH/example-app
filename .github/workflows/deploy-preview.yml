@@ -96,10 +96,10 @@ jobs:
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
-            ### :cloud: Blog API preview app
+            ### :cloud: photos API preview app
             ${{ needs.build-and-deploy-api.outputs.platformatic_app_url }} (Platformatic Cloud)
 
-            ### :elephant: Blog branch database
+            ### :elephant: photos branch database
             ${{ needs.build-and-deploy-api.outputs.neon_branch_url }} (Neon)
           comment_tag: preview-app-urls
           mode: upsert
