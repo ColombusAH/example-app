@@ -11,7 +11,7 @@
     "typescript": "^5.4.2"
   },
   "dependencies": {
-    "platformatic": "^1.25.0"
+    "platformatic": "^1.36.1"
   },
   "engines": {
     "node": "^18.8.0 || >=20.6.0"
