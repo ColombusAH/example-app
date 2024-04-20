@@ -63,7 +63,7 @@ jobs:
           password: ${{ secrets.NEON_DB_PASSWORD }}
 
       - name: Install Platformatic app dependencies
-        run: npm install --omit=dev
+        run: npm i platformatic@latest && npm install --omit=dev
 
       - name: Deploy production app to Platformatic Cloud
         id: deploy-production-app
