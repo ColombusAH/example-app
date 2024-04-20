@@ -67,7 +67,7 @@ jobs:
 
       - name: Deploy production app to Platformatic Cloud
         id: deploy-production-app
-        uses: platformatic/onestep@1.0.0
+        uses: platformatic/onestep@latest
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           platformatic_workspace_id: ${{ vars.PLATFORMATIC_STATIC_WORKSPACE_ID }}
