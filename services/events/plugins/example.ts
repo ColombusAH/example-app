@@ -16,6 +16,7 @@ export default async function (fastify: FastifyInstance, opts: FastifyPluginOpti
     }
   },async (request, reply) => {
     const eventsCount = await   fastify.platformatic.entities.event .count();
+    console.log('eventsCount',eventsCount);
     return { eventsCount };
   },)
   // fastify.decorate('example', 'foobar')

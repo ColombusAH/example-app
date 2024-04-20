@@ -63,20 +63,22 @@ jobs:
           password: ${{ secrets.NEON_DB_PASSWORD }}
 
       - name: Install Platformatic app dependencies
-        run: npm install --omit=dev
+        run: npm i platformatic@latest && npm install --omit=dev
 
       - name: Deploy production app to Platformatic Cloud
         id: deploy-production-app
-        uses: platformatic/onestep@latest
+        uses: platformatic/onestep@renovate/platformatic-deploy-client-1.x-lockfile
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           platformatic_workspace_id: ${{ vars.PLATFORMATIC_STATIC_WORKSPACE_ID }}
           platformatic_workspace_key: ${{ secrets.PLATFORMATIC_STATIC_WORKSPACE_API_KEY }}
-          platformatic_config_path: ./blog-api/platformatic.db.json
+          platformatic_config_path: ./services/events/platformatic.json
           secrets: DATABASE_URL
         env:
           PLT_SERVER_HOSTNAME: ${{ vars.PLT_SERVER_HOSTNAME }}
           PORT: ${{ vars.PLT_SERVER_PORT }}
+          PLT_EVENTS_DATABASE_URL: ${{ secrets.PLT_EVENTS_DATABASE_URL }}
+          PLT_EVENTS_APPLY_MIGRATIONS: ${{ vars.PLT_EVENTS_APPLY_MIGRATIONS }}
           PLT_SERVER_LOGGER_LEVEL: ${{ vars.PLT_SERVER_LOGGER_LEVEL }}
           PLT_MIGRATIONS_DB_TYPE: ${{ vars.PLT_MIGRATIONS_DB_TYPE }}
           PLT_SERVER_CORS_ORIGIN: ${{ vars.PLT_SERVER_CORS_ORIGIN }}
@@ -96,10 +98,10 @@ jobs:
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
-            ### :cloud: Blog API preview app
+            ### :cloud: photos API preview app
             ${{ needs.build-and-deploy-api.outputs.platformatic_app_url }} (Platformatic Cloud)
 
-            ### :elephant: Blog branch database
+            ### :elephant: photos branch database
             ${{ needs.build-and-deploy-api.outputs.neon_branch_url }} (Neon)
           comment_tag: preview-app-urls
           mode: upsert
