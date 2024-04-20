@@ -77,6 +77,7 @@ jobs:
         env:
           PLT_SERVER_HOSTNAME: ${{ vars.PLT_SERVER_HOSTNAME }}
           PORT: ${{ vars.PLT_SERVER_PORT }}
+          PLT_EVENTS_DATABASE_URL: ${{ secrets.PLT_EVENTS_DATABASE_URL }}
           PLT_SERVER_LOGGER_LEVEL: ${{ vars.PLT_SERVER_LOGGER_LEVEL }}
           PLT_MIGRATIONS_DB_TYPE: ${{ vars.PLT_MIGRATIONS_DB_TYPE }}
           PLT_SERVER_CORS_ORIGIN: ${{ vars.PLT_SERVER_CORS_ORIGIN }}
